@@ -1,0 +1,30 @@
+<html>
+
+	<head>
+		<title>test</title>
+		<script type="text/javascript">
+		    function openCamera() {
+		        if(typeof Android !== "undefined" && Android !== null) {
+		            Android.openCamera();
+		        } else {
+		            alert("Not viewing in webview");
+		        }
+		    }
+		    function getImageData() {
+		    	if(typeof Android !== "undefined" && Android !== null) {
+		    		var dataMessageNative = Android.getImageString();
+		    		document.getElementById('picture').setAttribute( 'src', 'data:image/png;base64,' + dataMessageNative);
+		    	}
+		    	else {
+		            alert("Not viewing in webview");
+		        }
+		    }
+		</script>
+	</head>
+
+	<body>
+		<input type="button" value="Open Camera" onClick="openCamera()" />
+		<img id="picture" />
+	</body>
+
+</html>
